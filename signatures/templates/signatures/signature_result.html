@@ -1,0 +1,11 @@
+<!-- signatures/templates/signatures/signature_image.html -->
+{% extends "base.html" %} {% load static %} {% block content %}
+<h1>Signature Result</h1>
+
+<p>Name: {{ name }}</p>
+
+{% if signature_exists %}
+<img src="{% static 'images/signature.png' %}" alt="Generated signature" />
+{% else %}
+<p>No signature available.</p>
+{% endif %} {% endblock content %}

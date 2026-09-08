@@ -1,8 +1,8 @@
 <!-- signatures/templates/signatures/signature_form.html -->
 {% extends "base.html" %} {% load static %} {% block extra_head %}
-<script src="{% static 'signatures/signature-pad-js.js' %}"></script>
+<script src="{% static 'js/signatures/signature-pad-js.js' %}"></script>
 {% endblock extra_head %} {% block content %}
-<form method="post">
+<form method="post" action="{% url 'signature_result' %}">
   {% csrf_token %}
 
   <div>
@@ -19,17 +19,26 @@
 
   <div>
     <button type="button" id="clearSignature">Clear</button>
-    <button type="button" id="saveSignature">Save</button>
 
     <button type="submit">Submit</button>
+
+    <input type="hidden" name="signature" id="signatureData" />
   </div>
 </form>
 
-<script>
-  const signature1 = signaturePad(
-    "signature",
-    "clearSignature",
-    "saveSignature",
-  );
+<script type="text/javascript">
+  const signature = signaturePad("signature", "clearSignature");
+
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const data = signature.toDataURL();
+
+    document.querySelector("#signatureData").value = data;
+
+    form.submit();
+  });
 </script>
 {% endblock content %}
