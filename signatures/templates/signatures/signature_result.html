@@ -5,7 +5,10 @@
 <p>Name: {{ name }}</p>
 
 {% if signature_exists %}
-<img src="{% static 'images/signature.png' %}" alt="Generated signature" />
+<img
+  src="{% static 'signatures/images/signature.png' %}"
+  alt="Generated signature"
+/>
 {% else %}
 <p>No signature available.</p>
 {% endif %} {% endblock content %}

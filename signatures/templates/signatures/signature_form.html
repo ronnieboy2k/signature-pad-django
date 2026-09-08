@@ -1,6 +1,6 @@
 <!-- signatures/templates/signatures/signature_form.html -->
 {% extends "base.html" %} {% load static %} {% block extra_head %}
-<script src="{% static 'js/signatures/signature-pad-js.js' %}"></script>
+<script src="{% static 'signatures/js/signature-pad-js.js' %}"></script>
 {% endblock extra_head %} {% block content %}
 <form method="post" action="{% url 'signature_result' %}">
   {% csrf_token %}

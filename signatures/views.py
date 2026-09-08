@@ -24,7 +24,14 @@ class SignatureResultPageView(TemplateView):
 
         save_signature_image(signature)
 
-        image_path = BASE_DIR / "signatures" / "static" / "images" / "signature.png"
+        image_path = (
+            BASE_DIR
+            / "signatures"
+            / "static"
+            / "signatures"
+            / "images"
+            / "signature.png"
+        )
 
         context = {
             "name": name,

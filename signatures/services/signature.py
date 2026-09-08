@@ -5,7 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 def save_signature_image(encoded_data):
-    filename = BASE_DIR / "signatures" / "static" / "images" / "signature.png"
+    filename = (
+        BASE_DIR / "signatures" / "static" / "signatures" / "images" / "signature.png"
+    )
 
     if encoded_data:
         encoded_data = encoded_data.split(",", 1)[1]
